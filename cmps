@@ -7,13 +7,22 @@ int main(void)
 	int dt = 0;
 
 	srand(time(NULL));
-
-	printf("進む方角の数を指定");
-	scanf("%d".&dt);
- 	
-	int hgk = rand()%dt;	//方角 指定された数でランダム
 	
-	printf("%02d の方へ¥n".hgk);
+	printf("進む方角の数を1~6で指定(2:3:4:8:16:32)");
+	scanf("%[1,2,3,4,5,6]".&dt);
+	switch(dt){
+		case 1:	dt = 2;	break;
+		case 2:	dt = 3;	break;
+		case 3:	dt = 4;	break;
+		case 4:	dt = 8;	break;
+		case 5:	dt = 16;	break;
+		case 6:	dt = 32;	break;
+		default :	break;
+	}
 
-	return 0;
+ 	int hgk = rand()%dt;	//方角 指定された数でランダム
+ 	
+ 	printf("%02d の方へ¥n".hgk);
+ 
+ 	return 0;
 }
